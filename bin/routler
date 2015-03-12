@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'routler'
+require 'commander/import'
+
+program :version, Routler::VERSION
+program :description, 'convert your rails routes to a CSV for reporting, processing, etc'
+
+default_command :build
+
+command :build do |c|
+  c.syntax = 'routler build filename [options]'
+  c.summary = 'build csv from routes'
+  c.description = <<-EOF
+Builds CSV files for your rail routes. 'filename' is assumed to be a file that
+holds the output of a rake routes run.  If no filename is passed, routler will
+run rake routes in your cwd and use the contents out its output
+EOF
+  c.example 'run rake routes in cwd and output csv to stdout', 'routler build'
+  c.example 'process input_file and write csv to stdout', 'routler build input_file'
+  c.example 'process input_file and write csv to a file named routes.csv', 'routler build input_file -o routes.csv'
+  c.option '--output STRING', 'output file path'
+  c.option '--stats BOOL', 'output stats'
+  c.action do |args, options|
+    options.default output: 'stdout', stats: false
+  end
+end
+
