@@ -1,4 +1,4 @@
-# Routler
+# routler
 
 Convert your rails routes to a CSV for reporting, processing, etc.
 
