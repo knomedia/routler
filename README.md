@@ -1,5 +1,7 @@
 # routler
 
+[![Build Status](https://travis-ci.org/knomedia/routler.svg?branch=master)](https://travis-ci.org/knomedia/routler)
+
 Convert your rails routes to a CSV for reporting, processing, etc.
 
 ## Installation
