@@ -29,8 +29,8 @@ EOF
     formatter = Routler::Formatters::Csv.new
     cs = Routler::Consumer.new
     parser = Routler::Parser.new
-    csv_content = formatter.format(parser.parse(cs.load_file(args[0])))
-    Routler::Presenter.new.display csv_content, options.output
+    content = formatter.format(parser.parse(cs.load_file(args[0])))
+    Routler::Presenter.new.display content, options.output
   end
 end
 
