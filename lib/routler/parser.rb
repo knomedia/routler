@@ -16,6 +16,7 @@ module Routler
         @lines += 1
         add_controller(parse_line line)
       end
+      all_controllers
     end
 
     def parse_line(line)
@@ -41,6 +42,14 @@ module Routler
         @controllers[name] = Controller.new(name) if !@controllers.fetch name, nil
         @controllers[name].add_action action
       end
+    end
+
+    def all_controllers
+      cont = []
+      @controllers.keys.sort.each do |k|
+        cont << @controllers[k]
+      end
+      cont
     end
 
   end

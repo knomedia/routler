@@ -23,6 +23,11 @@ EOF
   c.option '--stats BOOL', 'output stats'
   c.action do |args, options|
     options.default output: 'stdout', stats: false
+    formatter = Routler::Formatters::Csv.new
+    cs = Routler::Consumer.new
+    parser = Routler::Parser.new
+    csv_content = formatter.format(parser.parse(cs.load_file(args[0])))
+    Routler::Presenter.new.display csv_content, options.output
   end
 end
 

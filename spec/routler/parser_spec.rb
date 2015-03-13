@@ -61,4 +61,15 @@ describe Routler::Parser do
     end
   end
 
+  describe '#all_controllers' do
+    it 'should return a sorted array of controllers' do
+      content = "oauth_success GET  /oauth_success(.:format)  foo#oauth_success"
+      content = content + "\n"
+      content = content + "oauth GET  /oauth(.:format)   bar#oauth"
+      @p.parse content
+      controller_names = @p.all_controllers.map {|c| c.name}
+      expect(controller_names).to eq(['bar', 'foo'])
+    end
+  end
+
 end
