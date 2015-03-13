@@ -22,6 +22,7 @@ EOF
   c.example 'run rake routes in cwd and output csv to stdout', 'routler build'
   c.example 'process input_file and write csv to stdout', 'routler build input_file'
   c.example 'process input_file and write csv to a file named routes.csv', 'routler build input_file -o routes.csv'
+  c.example 'process input_file, write to stdout, print stats', 'routler build input_file -s true'
   c.option '--output STRING', 'output file path'
   c.option '--stats BOOL', 'output stats'
   c.action do |args, options|

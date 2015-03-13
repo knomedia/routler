@@ -22,9 +22,52 @@ Or install it yourself as:
 
 ## Usage
 
+`build` is the default command. You can leave it off, but everything is
+documented on the `build` command.
+
 ```bash
 
-routler -h
+$ routler help build
+
+  NAME:
+
+    build
+
+  SYNOPSIS:
+
+    routler build filename [options]
+
+  DESCRIPTION:
+
+    Builds CSV files for your rail routes. 'filename' is assumed to be a file that
+    holds the output of a rake routes run.  If no filename is passed, routler will
+    run rake routes in your cwd and use the contents out its output.
+
+    build is the default command so you can actually drop the build argument in all
+    of the following examples
+
+
+  EXAMPLES:
+
+    # run rake routes in cwd and output csv to stdout
+    routler build
+
+    # process input_file and write csv to stdout
+    routler build input_file
+
+    # process input_file and write csv to a file named routes.csv
+    routler build input_file -o routes.csv
+
+    # process input_file, write to stdout, print stats
+    routler build input_file -s true
+
+  OPTIONS:
+
+    --output STRING
+        output file path
+
+    --stats BOOL
+        output stats
 
 ```
 
