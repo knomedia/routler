@@ -31,6 +31,9 @@ EOF
     parser = Routler::Parser.new
     content = formatter.format(parser.parse(cs.load_file(args[0])))
     Routler::Presenter.new.display content, options.output
+    if options.stats
+      puts Routler::StatBuilder.new(parser).display
+    end
   end
 end
 
