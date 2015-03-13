@@ -16,6 +16,9 @@ module Routler
       output += "    Actions found: #{num_actions}\n"
       output += "     Lines parsed: #{@parser.lines}\n"
       output += "   Parsing errors: #{@parser.error_lines.length}\n"
+      output += "=============================\n"
+      output += "Parsing error on the following lines:\n"
+      @parser.error_lines.each {|e| output += "#{e}"}
       output
     end
 
