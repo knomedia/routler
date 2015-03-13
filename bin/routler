@@ -14,7 +14,10 @@ command :build do |c|
   c.description = <<-EOF
 Builds CSV files for your rail routes. 'filename' is assumed to be a file that
 holds the output of a rake routes run.  If no filename is passed, routler will
-run rake routes in your cwd and use the contents out its output
+run rake routes in your cwd and use the contents out its output.
+
+build is the default command so you can actually drop the build argument in all
+of the following examples
 EOF
   c.example 'run rake routes in cwd and output csv to stdout', 'routler build'
   c.example 'process input_file and write csv to stdout', 'routler build input_file'
